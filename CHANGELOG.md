@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-05-18
+
 - Initial version of the mod
 
 ### Added
 
 - First version of the mod!
+
+[unreleased]: https://github.com/Tal-lev/SpawnEnemy/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/Tal-lev/SpawnEnemy/compare/36e9f3de7198072751f6bb6f46f1bd581cc4e6ae...0.1.0
