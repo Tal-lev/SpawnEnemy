@@ -44,6 +44,8 @@ local function on_ready()
 	mod = modutil.mod.Mod.Register(_PLUGIN.guid)
 
 	import 'ready.lua'
+	import 'imgui.lua'
+	import 'data.lua'
 end
 
 local function on_reload()

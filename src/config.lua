@@ -1,5 +1,14 @@
-return {
-  version = 0;
+local config = {
   enabled = true;
-  message = 'Hello World!';
+  biome = "Erebus";
+  enemy = "Zombie";
+  team  = "Enemy1"
 }
+
+local configDesc = {
+  biome = "The biome of the enemy summoned";
+  enemy = "The name of the enemy summoned";
+  team  = "The side does the enemy belong to"
+}
+
+return config, configDesc

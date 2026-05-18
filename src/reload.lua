@@ -7,30 +7,174 @@
 
 
 -- These functions are part of the example code snippets from ready.lua
-function sjson_ShellText(data)
-	for _,v in ipairs(data.Texts) do
-		if v.Id == 'MainMenuScreen_PlayGame' then
-			v.DisplayName = 'Test ' .. _PLUGIN.guid
+function mod.SummonEnemy( functionArgs, triggerArgs)
+
+	IncrementTableValue( SessionMapState, "SpellFired" )
+	local enemyName = functionArgs.enemy
+	local team = functionArgs.team
+	local enemyData = EnemyData[enemyName]
+	local hasEnemy = false
+
+	local summonArgs = { MaxHealthMultiplier = 1, SpeedMultiplier = 1, ScaleMultiplier = 1, DamageMultiplier = 1}
+
+	local offset = CalcOffset(math.rad(GetAngle({Id = CurrentRun.Hero.ObjectId})), 500 )
+	local invaderSpawnPoint = SpawnObstacle({ Name = "InvisibleTarget", DestinationId = CurrentRun.Hero.ObjectId, OffsetX = offset.X, OffsetY = offset.Y, ForceToValidLocation = true})
+	
+
+	summonArgs.SpawnPointId = invaderSpawnPoint
+	summonArgs.TryUseRequiredSpawnPoint = true
+	summonArgs.team = team
+	local newEnemy = mod.CreateEnemy( enemyName, summonArgs)
+
+	DestroyOnDelay({ invaderSpawnPoint }, 0.1)
+end
+
+
+function mod.CreateEnemy( enemyName, args )
+	args = args or {}	
+	local team = args.team or "player"
+	local weaponDataMultipliers = 
+	{ 
+		MaxHealthMultiplier = args.MaxHealthMultiplier or 1, 
+		SpeedMultiplier = args.SpeedMultiplier or 1,
+		ScaleMultiplier = args.ScaleMultiplier or 1,
+		DamageMultiplier = args.DamageMultiplier or 1,
+	}
+	local enemyData = EnemyData[enemyName]
+	local newEnemy = DeepCopyTable( enemyData )
+	newEnemy.DefaultAIData.TargetClosest = true
+	newEnemy.MaxHealth = newEnemy.MaxHealth
+	newEnemy.HealthBarOffsetY = (newEnemy.HealthBarOffsetY or -155 )
+	newEnemy.HideHealthBar = false
+	if team == "player" then
+		newEnemy.BlocksLootInteraction = false
+		newEnemy.AlwaysTraitor = true
+		newEnemy.Charmed = true
+		newEnemy.IgnoreCastSlow = true
+		newEnemy.UseUniqueDamageColors = true
+		newEnemy.DamageTextStartColor = Color.SummonDamageLight
+		newEnemy.DamageTextColor = Color.SummonDamage
+		newEnemy.MoneyDropOnDeath = nil
+		newEnemy.RequiredKill = false
+		newEnemy.BlockPostBossMetaUpgrades = true
+	else
+		newEnemy.BlocksLootInteraction = true
+		newEnemy.Charmed = false
+		newEnemy.IgnoreCastSlow = false
+		newEnemy.UseUniqueDamageColors = false
+		newEnemy.MoneyDropOnDeath = nil
+		newEnemy.RequiredKill = true
+		newEnemy.HideHealthBar = false
+		if team == "team2" then
+			newEnemy.AlwaysTraitor = true
+		else
+			newEnemy.AlwaysTraitor = false
+		end
+	end
+
+	if args.TryUseRequiredSpawnPoint and newEnemy.RequiredSpawnPoint then
+		local spawnPointId = SelectSpawnPoint(CurrentRun.CurrentRoom, newEnemy, {SpawnNearId = CurrentRun.Hero.ObjectId, SpawnRadius = 900, AllowNoSpawnPoint = true })
+		if not spawnPointId then
+			spawnPointId = SelectSpawnPoint(CurrentRun.CurrentRoom, newEnemy, { AllowNoSpawnPoint = true })
+		end
+		if spawnPointId then
+			args.SpawnPointId = spawnPointId
+		end
+	end
+	newEnemy.BlocksLootInteraction = false
+
+	local spawnOnId = newEnemy.SpellSummonSpawnOnId or args.SpawnPointId
+	if newEnemy.SpellSummonSpawnOnIdPerMap ~= nil and newEnemy.SpellSummonSpawnOnIdPerMap[CurrentRun.CurrentRoom.Name] ~= nil then
+		spawnOnId = newEnemy.SpellSummonSpawnOnIdPerMap[CurrentRun.CurrentRoom.Name]
+	end
+
+	newEnemy.ObjectId = SpawnUnit({
+			Name = enemyData.Name,
+			Group = "Standing",
+			DestinationId = spawnOnId, OffsetX = 0, OffsetY = 0 })
+	if team == "player" then
+		newEnemy.AddToEnemyTeam = false
+		thread( CreateAlliedEnemyPresentation, newEnemy )
+	else
+		newEnemy.AddToEnemyTeam = true
+	end
+		thread( SetupUnit, newEnemy, CurrentRun, { SkipPresentation = false } )
+	
+	
+	--table.insert( newEnemy.Groups, "Summons" )
+	--AddToGroup({ Id = newEnemy.ObjectId, Name = "Summons" })
+	SessionMapState.SpawnPointsUsed[spawnOnId] = newEnemy.ObjectId
+	thread( UnoccupySpawnPointOnDistance, newEnemy, spawnOnId, 400 )
+	SetThingProperty({ Property = "ElapsedTimeMultiplier", Value = GetGameplayElapsedTimeMultiplier(), ValueChangeType = "Absolute", DataValue = false, DestinationId = newEnemy.ObjectId })
+	AddOutgoingDamageModifier( newEnemy, { NonPlayerMultiplier = 1, Multiplicative = true })
+	--AddOutgoingDamageModifier( newEnemy, { PlayerMultiplier = 1, Multiplicative = true })
+	
+	newEnemy.SpeedMultiplier = ( newEnemy.SpeedMultiplier or 1 )
+	SetThingProperty({ Property = "ElapsedTimeMultiplier", Value = newEnemy.SpeedMultiplier, ValueChangeType = "Multiply", DataValue = false, DestinationId = newEnemy.ObjectId })
+	RemoveAutoLockTarget({ Id = newEnemy.ObjectId })
+	for i, data in pairs(newEnemy.OutgoingDamageModifiers) do
+		if data.NonPlayerMultiplier and data.NonPlayerMultiplier == 0 then
+			RemoveValueAndCollapse( newEnemy.OutgoingDamageModifiers, data )	
 			break
 		end
 	end
-end
-
-function prefix_SetupMap()
-	print('Map is loading, here we might load some packages.')
-	-- LoadPackages({Name = package_name_string})
-end
-
-function trigger_Gift()
-	modutil.mod.Hades.PrintOverhead(config.message)
-end
-
-
--------------------------------------------------------------------
--- This function is part of the mod creation guide from the wiki --
--------------------------------------------------------------------
-function mod.LoadSkellyPackage()
-	local packageName = _PLUGIN.guid .. "Portraits"
-	print("AuthorName-ModName - Loading package: " .. packageName)
-	LoadPackages({ Name = packageName })
+	
+	if team == "player" then
+		AddIncomingDamageModifier( newEnemy,
+		{
+			Name = "PlayerDeathDefense",
+			PlayerMultiplier = 0.0,
+			Multiplicative = true
+		})
+		AddIncomingDamageModifier( newEnemy,
+		{
+			Name = "EnemyDeathDefense",
+			NonPlayerMultiplier = 1,
+			Multiplicative = true
+		})
+		SetLifeProperty({ DestinationId = newEnemy.ObjectId, Property = "JumpTargetEligible", Value = false })
+		SetLifeProperty({ DestinationId = newEnemy.ObjectId, Property = "ProjectilesAlwaysPenetrate", Value = true })
+		SetLifeProperty({ DestinationId = newEnemy.ObjectId, Property = "HomingEligible", Value = false })
+		SetScale({ Id = newEnemy.ObjectId, Fraction = weaponDataMultipliers.ScaleMultiplier, Duration = 0 })
+		AddEffectBlock({ Id = newEnemy.ObjectId, Name = "OnHitStun" })
+		AddEffectBlock({ Id = newEnemy.ObjectId, Name = "OnHitStunHeavy" })
+		AddEffectBlock({ Id = newEnemy.ObjectId, Name = "BlindEffect" })
+		newEnemy.SummonHealthBarEffect = true
+		newEnemy.SkipDamageText = true
+		newEnemy.ImmuneToPolymorph = true
+		ApplyEffect({ 
+			Id = CurrentRun.Hero.ObjectId, 
+			DestinationId = newEnemy.ObjectId, 
+			EffectName = "Charm",
+			DataProperties = { Duration = 3600 },
+			})
+		if not newEnemy.IgnoreAllyHitPresentation then
+			newEnemy.OnHitEvents =
+			{
+				{
+					FunctionName = "AllyHitPresentation",
+				}
+			}
+		end
+	else
+		AddIncomingDamageModifier( newEnemy,
+		{
+			Name = "PlayerDeathDefense",
+			PlayerMultiplier = 1.0,
+			Multiplicative = true
+		})
+		AddIncomingDamageModifier( newEnemy,
+		{
+			Name = "EnemyDeathDefense",
+			NonPlayerMultiplier = 1,
+			Multiplicative = true
+		})	
+		SetLifeProperty({ DestinationId = newEnemy.ObjectId, Property = "JumpTargetEligible", Value = true })
+		SetLifeProperty({ DestinationId = newEnemy.ObjectId, Property = "ProjectilesAlwaysPenetrate", Value = false })
+		SetLifeProperty({ DestinationId = newEnemy.ObjectId, Property = "HomingEligible", Value = true })
+		newEnemy.SummonHealthBarEffect = false
+		newEnemy.SkipDamageText = false
+		newEnemy.ImmuneToPolymorph = false
+	end
+	return newEnemy
 end
