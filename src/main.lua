@@ -45,7 +45,7 @@ local function on_ready()
 
 	import 'ready.lua'
 	import 'imgui.lua'
-	import 'data.lua'
+	
 end
 
 local function on_reload()
@@ -62,6 +62,7 @@ local function on_ready_late()
 	if config.enabled == false then return end
 
 	import 'ready_late.lua'
+	import 'data.lua'
 end
 
 local function on_reload_late()

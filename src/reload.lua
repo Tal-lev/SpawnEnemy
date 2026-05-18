@@ -12,6 +12,24 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 	IncrementTableValue( SessionMapState, "SpellFired" )
 	local enemyName = functionArgs.enemy
 	local team = functionArgs.team
+	local biome = functionArgs.biome
+	if biome == "Erebus" then
+		LoadPackages({ Name = "BiomeF", IgnoreAssert = true })
+	elseif biome == "Oceanus" then
+		LoadPackages({ Name = "BiomeG", IgnoreAssert = true })
+	elseif biome == "Mourning_Fields" then
+		LoadPackages({ Name = "BiomeH", IgnoreAssert = true })
+	elseif biome == "Tartarus" then
+		LoadPackages({ Name = "BiomeI", IgnoreAssert = true })
+	elseif biome == "Ephyra" then
+		LoadPackages({ Name = "BiomeN", IgnoreAssert = true })
+	elseif biome == "Sea" then
+		LoadPackages({ Name = "BiomeO", IgnoreAssert = true })
+	elseif biome == "Mount_Olympus" then
+		LoadPackages({ Name = "BiomeP", IgnoreAssert = true })
+	elseif biome == "Summit" then
+		LoadPackages({ Name = "BiomeQ", IgnoreAssert = true })
+	end
 	local enemyData = EnemyData[enemyName]
 	local hasEnemy = false
 

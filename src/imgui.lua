@@ -1,6 +1,7 @@
 local previousConfig = {
     biome = nil,
     enemy = nil,
+    type  = nil,
     team  = nil,
 }
 
@@ -38,9 +39,23 @@ function DrawMenu()
         rom.ImGui.EndCombo()
     end
 
+    rom.ImGui.Text("Select Type")
+    if rom.ImGui.BeginCombo("###type", config.type) then
+        for _, TypeName in ipairs(mod.TypeDisplayOrder) do
+            if rom.ImGui.Selectable(TypeName, (TypeName == config.type)) then
+                if TypeName ~= previousConfig.type then
+                    config.type = TypeName
+                    previousConfig.type = TypeName
+                end
+                rom.ImGui.SetItemDefaultFocus()
+            end
+        end
+        rom.ImGui.EndCombo()
+    end
+
     rom.ImGui.Text("Select Enemy")
     if rom.ImGui.BeginCombo("###enemy", config.enemy) then
-        for _, EnemyName in ipairs(mod.EnemyDisplayOrder[config.biome]) do
+        for _, EnemyName in ipairs(mod.EnemyDisplayOrder[config.biome][config.type]) do
             if rom.ImGui.Selectable(EnemyName, (EnemyName == config.enemy)) then
                 if EnemyName ~= previousConfig.enemy then
                     config.enemy = EnemyName
@@ -68,7 +83,11 @@ function DrawMenu()
 
     local clicked = rom.ImGui.Button("Summon")
         if clicked then
-            mod.SummonEnemy( {enemy = config.enemy, team = config.team} )
+            mod.SummonEnemy( {
+                enemy = config.enemy, 
+                team = config.team,
+                biome = config.biome,
+            } )
             --mod.UnequipWeapons()
             --UnfuseWeapons()
             --config.last_primary = config.primary
