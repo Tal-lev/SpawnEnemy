@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added Zagreus Journey compatability
+- Added Elites
+- Fix enemies spawn without textures
+
 ## [0.1.0] - 2026-05-18
 
 - Initial version of the mod
