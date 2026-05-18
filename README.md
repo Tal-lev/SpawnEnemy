@@ -1,15 +1,18 @@
-# Mod name
+# SpawnEnemy
 
-Hades II mod allowing to do some super duper thing.
+Allows spawning basic enemies using the imgui menu. 
 
 ## Features
 
-- Wow.
-- Much cool.
-  - Very doge.
+- Spawn friends
+- Spawn foes
 
-## Install
+## Installation
 
-- Do this.
-- Do that.
-  - Nope, not that.
+Use r2modman by ebkr from Thunderstore or GitHub.
+
+While the mod has been tested decently well it is recommended to backup your save from %USERPROFILE%\Saved Games\Hades II\Profile*.sav in case there are issues.
+
+## Issues
+
+Report any issues on the mod [github](https://github.com/Tal-lev/SpawnEnemy/issues) or [Hades Modding discord](https://discord.gg/KuMbyrN)
