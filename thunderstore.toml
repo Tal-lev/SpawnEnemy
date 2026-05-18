@@ -3,11 +3,11 @@ schemaVersion = "0.0.1"
 
 
 [package]
-namespace = "AuthorName"
-name = "ModName"
+namespace = "JarlUlsfark"
+name = "SpawnEnemy"
 versionNumber = "0.0.1"
 description = "Allows to do some super duper thing."
-websiteUrl = "https://github.com/AuthorName/ModName"
+websiteUrl = "https://https://github.com/Tal-lev/SpawnEnemy"
 containsNsfwContent = false
 
 [package.dependencies]
