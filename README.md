@@ -6,6 +6,8 @@ Allows spawning basic enemies using the imgui menu.
 
 - Spawn friends
 - Spawn foes
+- Spawn bosses
+- Stop time
 
 ## Installation
 
@@ -15,7 +17,7 @@ While the mod has been tested decently well it is recommended to backup your sav
 
 ## Known Issues
 
-- Bosses stand idle when summoned
+- Biome Bosses are idle when summoned not in a run
 
 ## Issues
 
