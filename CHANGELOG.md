@@ -7,8 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Fix Zagreus Journey enemies names were matching H2 enemies.
+- Fix some Zagreus Journey enemies names were matching H2 enemies.
 - Added buttons to stop and resume time.
+- Added the ability to spawn bosses
 
 ## [0.1.1] - 2026-05-18
 
