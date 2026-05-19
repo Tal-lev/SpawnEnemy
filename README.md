@@ -15,7 +15,6 @@ While the mod has been tested decently well it is recommended to backup your sav
 
 ## Known Issues
 
-- Some enemies are missing their texture in some biomes
 - Bosses stand idle when summoned
 
 ## Issues
