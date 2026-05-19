@@ -13,6 +13,7 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 	local enemyName = functionArgs.enemy
 	local team = functionArgs.team
 	local biome = functionArgs.biome
+	local Enemytype = functionArgs.type
 	if biome == "Erebus" then
 		LoadPackages({ Name = "BiomeF", IgnoreAssert = true })
 	elseif biome == "Oceanus" then
@@ -29,6 +30,8 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 		LoadPackages({ Name = "BiomeP", IgnoreAssert = true })
 	elseif biome == "Summit" then
 		LoadPackages({ Name = "BiomeQ", IgnoreAssert = true })
+	elseif biome == "Tartarus_H1" or biome == "Asphodel" or biome == "Elysium" or biome == "Styx" then
+		LoadPackages({ Name = "RoomManagerModsNikkelMHadesBiomes", IgnoreAssert = true })
 	end
 	local enemyData = EnemyData[enemyName]
 	local hasEnemy = false
@@ -42,8 +45,8 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 	summonArgs.SpawnPointId = invaderSpawnPoint
 	summonArgs.TryUseRequiredSpawnPoint = true
 	summonArgs.team = team
+	summonArgs.type = Enemytype
 	local newEnemy = mod.CreateEnemy( enemyName, summonArgs)
-
 	DestroyOnDelay({ invaderSpawnPoint }, 0.1)
 end
 
@@ -51,6 +54,7 @@ end
 function mod.CreateEnemy( enemyName, args )
 	args = args or {}	
 	local team = args.team or "player"
+	local Enemytype = args.type or "regular"
 	local weaponDataMultipliers = 
 	{ 
 		MaxHealthMultiplier = args.MaxHealthMultiplier or 1, 
@@ -110,22 +114,17 @@ function mod.CreateEnemy( enemyName, args )
 			Name = enemyData.Name,
 			Group = "Standing",
 			DestinationId = spawnOnId, OffsetX = 0, OffsetY = 0 })
-	if team == "player" then
-		newEnemy.AddToEnemyTeam = false
-		thread( CreateAlliedEnemyPresentation, newEnemy )
-	else
-		newEnemy.AddToEnemyTeam = true
+	
+	thread( SetupUnit, newEnemy, CurrentRun, { SkipPresentation = false } )
+	
+	if Enemytype == "boss" then
+		thread( mod.SetupBoss, newEnemy)
 	end
-		thread( SetupUnit, newEnemy, CurrentRun, { SkipPresentation = false } )
-	
-	
-	--table.insert( newEnemy.Groups, "Summons" )
-	--AddToGroup({ Id = newEnemy.ObjectId, Name = "Summons" })
+
 	SessionMapState.SpawnPointsUsed[spawnOnId] = newEnemy.ObjectId
 	thread( UnoccupySpawnPointOnDistance, newEnemy, spawnOnId, 400 )
 	SetThingProperty({ Property = "ElapsedTimeMultiplier", Value = GetGameplayElapsedTimeMultiplier(), ValueChangeType = "Absolute", DataValue = false, DestinationId = newEnemy.ObjectId })
 	AddOutgoingDamageModifier( newEnemy, { NonPlayerMultiplier = 1, Multiplicative = true })
-	--AddOutgoingDamageModifier( newEnemy, { PlayerMultiplier = 1, Multiplicative = true })
 	
 	newEnemy.SpeedMultiplier = ( newEnemy.SpeedMultiplier or 1 )
 	SetThingProperty({ Property = "ElapsedTimeMultiplier", Value = newEnemy.SpeedMultiplier, ValueChangeType = "Multiply", DataValue = false, DestinationId = newEnemy.ObjectId })
@@ -194,5 +193,14 @@ function mod.CreateEnemy( enemyName, args )
 		newEnemy.SkipDamageText = false
 		newEnemy.ImmuneToPolymorph = false
 	end
+
 	return newEnemy
+end
+
+
+function mod.SetupBoss(enemy)
+	if enemy.PreBossAISetupFunctionName ~= nil then
+		CallFunctionName(enemy.PreBossAISetupFunctionName, enemy)
+	end
+	SetupAI(enemy)
 end

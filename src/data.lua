@@ -12,6 +12,7 @@ mod.BiomeDisplayOrder = {
 mod.TypeDisplayOrder = {
     "regular",
     "elite",
+    "boss",
 }
 
 mod.EnemyDisplayOrder = {
@@ -25,15 +26,15 @@ mod.EnemyDisplayOrder = {
             "SiegeVine",
         },
         elite = {
-		"Guard_Elite",
-		"Brawler_Elite",
-		"Radiator_Elite",
-		"Screamer_Elite",
-		"Mage_Elite",
-		"SiegeVine_Elite",
+            "Guard_Elite",
+            "Brawler_Elite",
+            "Radiator_Elite",
+            "Screamer_Elite",
+            "Mage_Elite",
+            "SiegeVine_Elite",
         },
-        miniboss = {
-
+        boss = {
+            "Hecate",
         },
     },
     Oceanus = {
@@ -55,8 +56,8 @@ mod.EnemyDisplayOrder = {
             "Guard2_Elite",
             "Radiator2_Elite",
         },
-        miniboss = {
-
+        boss = {
+            "Scylla",
         },
     },
     Mourning_Fields = {
@@ -85,7 +86,7 @@ mod.EnemyDisplayOrder = {
             "CorruptedShadeMedium_Elite",
             "CorruptedShadeLarge_Elite",
         },
-        miniboss = {
+        boss = {
 
         },
     },
@@ -106,8 +107,8 @@ mod.EnemyDisplayOrder = {
             "SatyrLancer_Elite",
             "SatyrRatCatcher_Elite",
         },
-        miniboss = {
-
+        boss = {
+            "Chronos",
         },
     },
     Ephyra = {
@@ -127,8 +128,9 @@ mod.EnemyDisplayOrder = {
             "ZombieHeavyRanged_Elite",
             "ZombieAssassin_Elite",
         },
-        miniboss = {
-
+        boss = {
+            "Boar",
+            "Polyphemus",
         },
     },
     Sea = {
@@ -150,8 +152,8 @@ mod.EnemyDisplayOrder = {
             "WaterElemental_Elite",
             "Mage2_Elite",
         },
-        miniboss = {
-
+        boss = {
+            "Eris",
         },
     },
     Mount_Olympus = {
@@ -177,8 +179,9 @@ mod.EnemyDisplayOrder = {
             "SatyrCrossbow2_Elite",
             "ZombieOlympus_Elite",
         },
-        miniboss = {
-
+        boss = {
+            "Prometheus",
+            "Heracles",
         },
     },
     Summit = {
@@ -196,7 +199,7 @@ mod.EnemyDisplayOrder = {
             "Mati_Elite",
             "DragonBurrower_Elite",
         },
-        miniboss = {
+        boss = {
 
         },
     },
@@ -229,56 +232,54 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
 	OverwriteTableKeys(mod.EnemyDisplayOrder,{
 		Tartarus_H1 = {
             regular = {
-                "Swarmer",
+                "HadesSwarmer",
                 "LightSpawner",
-                "ThiefMineLayer",
+                "HadesThiefMineLayer",
                 "PunchingBagUnit",
                 "HeavyMelee",
                 "DisembodiedHand",
-                "LightRanged",
+                "HadesLightRanged",
                 "HeavyRanged",
             },
             elite = {
                 "SwarmerElite",
-                "ThiefMineLayerElite",
+                "HadesThiefMineLayerElite",
                 "PunchingBagUnitElite",
                 "HeavyMeleeElite",
                 "DisembodiedHandElite",
                 "LightRangedElite",
                 "HeavyRangedElite",
             },
-            miniboss = {
-                "BloodlessGrenadierElite",
-                "BloodlessSelfDestructElite",
-                "BloodlessPitcherElite",
+            boss = {
+
             },
 		},
 		Asphodel = {
             regular = {
                 "CrusherUnit",
-                "BloodlessNaked",
+                "HadesBloodlessNaked",
                 "BloodlessNakedBerserker",
-                "BloodlessGrenadier",
-                "BloodlessSelfDestruct",
-                "BloodlessPitcher",
-                "BloodlessWaveFist",
-                "SpreadShotUnit",
+                "HadesBloodlessGrenadier",
+                "HadesBloodlessSelfDestruct",
+                "HadesBloodlessPitcher",
+                "HadesBloodlessWaveFist",
+                "HadesSpreadShotUnit",
                 "FreezeShotUnit",
                 "RangedBurrower",
             },
             elite = {
                 "LightSpawnerElite",
-                "BloodlessNakedElite",
+                "HadesBloodlessNakedElite",
                 "BloodlessNakedBerserkerElite",
-                "BloodlessGrenadierElite",
-                "BloodlessSelfDestructElite",
-                "BloodlessPitcherElite",
-                "BloodlessWaveFistElite",
-                "SpreadShotUnitElite",
+                "HadesBloodlessGrenadierElite",
+                "HadesBloodlessSelfDestructElite",
+                "HadesBloodlessPitcherElite",
+                "HadesBloodlessWaveFistElite",
+                "HadesSpreadShotUnitElite",
                 "FreezeShotUnitElite",
                 "RangedBurrowerElite",
             },
-            miniboss = {
+            boss = {
 
             },
 		},
@@ -305,13 +306,13 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "ChariotElite",
                 "ChariotSuicideElite",
             },
-            miniboss ={
-
+            boss ={
+                "Theseus",
             },
 		},
 		Styx = {
             regular = {
-                "Crawler",
+                "HadesCrawler",
                 "RatThug",
                 "SatyrRanged",
                 "HeavyRangedForked",
@@ -323,11 +324,13 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "HeavyRangedForkedElite",
                 "ThiefImpulseMineLayerElite",
             },
-            miniboss ={
+            boss ={
                 "SatyrRangedMiniboss",
                 "RatThugMiniboss",
                 "ThiefImpulseMineLayerMiniboss",
                 "HeavyRangedForkedMiniboss",
+                "HadesCrawlerMiniBoss",
+                "Hades"
             },
 		}
 	})

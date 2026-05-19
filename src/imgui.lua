@@ -82,22 +82,30 @@ function DrawMenu()
     end
 
     local clicked = rom.ImGui.Button("Summon")
-        if clicked then
-            mod.SummonEnemy( {
-                enemy = config.enemy, 
-                team = config.team,
-                biome = config.biome,
-            } )
-            --mod.UnequipWeapons()
-            --UnfuseWeapons()
-            --config.last_primary = config.primary
-            --config.last_secondary = config.secondary
-            --config.last_aspect = config.aspect
-            --FuseWeapon(config.primary, config.secondary, config.aspect)
-            --mod.EquipWeapons()
-            --game.RequestPreRunLoadoutChangeSave()
-        end
-    
-    rom.ImGui.Text("Summoning Enemies is only functional during runs")
+    if clicked then
+        mod.SummonEnemy( {
+            enemy = config.enemy, 
+            team = config.team,
+            biome = config.biome,
+            type = config.type,
+        } )
+    end
 
+    rom.ImGui.Text("Control Time")
+
+    clicked = rom.ImGui.Button("Stop")
+    if clicked then
+        GameplaySetElapsedTimeMultiplier( {
+            ElapsedTimeMultiplier = 0.01,
+            Force = true,
+
+        })
+    end
+
+    rom.ImGui.SameLine(); clicked = rom.ImGui.Button("Go")
+    if clicked then
+        GameplaySetElapsedTimeMultiplier({
+            ClearAll = true,
+        })
+    end
 end
