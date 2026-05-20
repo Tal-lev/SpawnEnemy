@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "JarlUlsfark"
 name = "SpawnEnemy"
-versionNumber = "0.2.0"
+versionNumber = "0.2.1"
 description = "Allows spawning enemies from imgui menu"
 websiteUrl = "https://github.com/Tal-lev/SpawnEnemy"
 containsNsfwContent = false

@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-05-20
+
 - Added bosses, Furies, Charybdhis, Minotaur, Charon 
 
 ## [0.2.0] - 2026-05-19
@@ -29,7 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.0...HEAD
+[unreleased]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.1...HEAD
+[0.2.1]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/Tal-lev/SpawnEnemy/compare/0.1.1...0.2.0
 [0.1.1]: https://github.com/Tal-lev/SpawnEnemy/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/Tal-lev/SpawnEnemy/compare/36e9f3de7198072751f6bb6f46f1bd581cc4e6ae...0.1.0
