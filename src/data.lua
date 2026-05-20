@@ -57,6 +57,8 @@ mod.EnemyDisplayOrder = {
             "Radiator2_Elite",
         },
         boss = {
+            "SirenKeytarist",
+            "SirenDrummer",
             "Scylla",
         },
     },
@@ -87,7 +89,7 @@ mod.EnemyDisplayOrder = {
             "CorruptedShadeLarge_Elite",
         },
         boss = {
-
+            "InfestedCerberus",
         },
     },
     Tartarus = {
@@ -108,6 +110,7 @@ mod.EnemyDisplayOrder = {
             "SatyrRatCatcher_Elite",
         },
         boss = {
+            --"Zagreus",
             "Chronos",
         },
     },
@@ -153,6 +156,7 @@ mod.EnemyDisplayOrder = {
             "Mage2_Elite",
         },
         boss = {
+            "Charybdis",
             "Eris",
         },
     },
@@ -180,6 +184,7 @@ mod.EnemyDisplayOrder = {
             "ZombieOlympus_Elite",
         },
         boss = {
+            "Talos",
             "Prometheus",
             "Heracles",
         },
@@ -200,7 +205,10 @@ mod.EnemyDisplayOrder = {
             "DragonBurrower_Elite",
         },
         boss = {
-
+            "Eyeball",
+            "TyphonEye",
+            --"TyphonHead",
+            "TyphonTail",
         },
     },
 
@@ -251,7 +259,9 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "HeavyRangedElite",
             },
             boss = {
-
+                "Harpy",
+                "Harpy2",
+                "Harpy3",
             },
 		},
 		Asphodel = {
@@ -307,6 +317,7 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "ChariotSuicideElite",
             },
             boss ={
+                "Minotaur",
                 "Theseus",
             },
 		},
@@ -330,7 +341,8 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "ThiefImpulseMineLayerMiniboss",
                 "HeavyRangedForkedMiniboss",
                 "HadesCrawlerMiniBoss",
-                "Hades"
+                "Hades",
+                "Charon",
             },
 		}
 	})
