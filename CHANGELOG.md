@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added bosses, Furies, Charybdhis, Minotaur, Charon 
+
 ## [0.2.0] - 2026-05-19
 
 - Fix some Zagreus Journey enemies names were matching H2 enemies.
