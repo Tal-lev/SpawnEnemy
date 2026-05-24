@@ -18,6 +18,7 @@ While the mod has been tested decently well it is recommended to backup your sav
 ## Known Issues
 
 - Biome Bosses are idle when summoned not in a run
+- Some bosses may have issues during their phase transitions
 
 ## Issues
 
