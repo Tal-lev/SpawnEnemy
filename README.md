@@ -19,6 +19,7 @@ While the mod has been tested decently well it is recommended to backup your sav
 
 - Biome Bosses are idle when summoned not in a run
 - Some bosses may have issues during their phase transitions
+- Freezing time also slows down openning of menus! Unfreeze before menus to avoid a softlock!
 
 ## Issues
 
