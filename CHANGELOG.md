@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Updated Enemy list
+  - miniboss minions
+  - more minibosses
+  - Zagreus
+- Loading Zagreus and house packages with tartarus
+
 ## [0.2.1] - 2026-05-20
 
 - Added bosses, Furies, Charybdhis, Minotaur, Charon 
