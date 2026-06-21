@@ -24,6 +24,8 @@ mod.EnemyDisplayOrder = {
             "Screamer",
             "Mage",
             "SiegeVine",
+            "Wisp",
+            "LightRanged",
         },
         elite = {
             "Guard_Elite",
@@ -34,6 +36,9 @@ mod.EnemyDisplayOrder = {
             "SiegeVine_Elite",
         },
         boss = {
+            "Treant",
+            "TreantTail",
+            "FogEmitter",
             "Hecate",
         },
     },
@@ -46,6 +51,7 @@ mod.EnemyDisplayOrder = {
             "WaterUnit",
             "Guard2",
             "Radiator2",
+            "Jellyfish",
         },
         elite = {
             "FishmanMelee_Elite",
@@ -57,6 +63,9 @@ mod.EnemyDisplayOrder = {
             "Radiator2_Elite",
         },
         boss = {
+            "CrawlerMiniboss",
+            "WaterUnitMiniboss",
+            "Octofish",
             "SirenKeytarist",
             "SirenDrummer",
             "Scylla",
@@ -66,7 +75,9 @@ mod.EnemyDisplayOrder = {
         regular = {
             "BrokenHearted",
             "Lovesick",
+            "LovesickHeart",
             "Lycanthrope",
+            "LycanSwarmer",
             "Mourner",
             "Lamia",
             "FogEmitter2",
@@ -76,6 +87,7 @@ mod.EnemyDisplayOrder = {
             "Screamer2",
             "FogEmitter2",
             "Treant2",
+            "TreantTail2",
         },
         elite = {
             "BrokenHearted_Elite",
@@ -87,8 +99,11 @@ mod.EnemyDisplayOrder = {
             "CorruptedShadeSmall_Elite",
             "CorruptedShadeMedium_Elite",
             "CorruptedShadeLarge_Elite",
+            "Screamer2_Elite",
         },
         boss = {
+            "Lamia_Miniboss",
+            "Vampire",
             "InfestedCerberus",
         },
     },
@@ -100,6 +115,8 @@ mod.EnemyDisplayOrder = {
             "ClockworkHeavyMelee",
             "SatyrLancer",
             "SatyrRatCatcher",
+            "Crawler",
+            "SatyrCultist",
         },
         elite = {
             "GoldElemental_Elite",
@@ -110,7 +127,8 @@ mod.EnemyDisplayOrder = {
             "SatyrRatCatcher_Elite",
         },
         boss = {
-            --"Zagreus",
+            "GoldElemental_MiniBoss",
+            "Zagreus",
             "Chronos",
         },
     },
@@ -118,6 +136,7 @@ mod.EnemyDisplayOrder = {
         regular = {
             "Carrion",
             "Mudman",
+            "MudmanEye",
             "Zombie",
             "ZombieSpawner",
             "ZombieHeavyRanged",
@@ -133,6 +152,7 @@ mod.EnemyDisplayOrder = {
         },
         boss = {
             "Boar",
+            "SatyrCrossbow",
             "Polyphemus",
         },
     },
@@ -156,7 +176,9 @@ mod.EnemyDisplayOrder = {
             "Mage2_Elite",
         },
         boss = {
+            "CharybdisTentacle",
             "Charybdis",
+            "Captain",
             "Eris",
         },
     },
@@ -191,11 +213,12 @@ mod.EnemyDisplayOrder = {
     },
     Summit = {
         regular = {
-            "SimpleSquad",
+            "Simple",
             "Stalker",
             "Brute",
             "Mati",
             "DragonBurrower",
+            "EarthElemental",
         },
         elite = {
             "SimpleSquad_Elite",
@@ -205,9 +228,10 @@ mod.EnemyDisplayOrder = {
             "DragonBurrower_Elite",
         },
         boss = {
+            "TyphonEgg",
             "Eyeball",
             "TyphonEye",
-            --"TyphonHead",
+            "TyphonHead",
             "TyphonTail",
         },
     },

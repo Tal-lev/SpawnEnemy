@@ -22,6 +22,9 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 		LoadPackages({ Name = "BiomeH", IgnoreAssert = true })
 	elseif biome == "Tartarus" then
 		LoadPackages({ Name = "BiomeI", IgnoreAssert = true })
+		LoadPackages({ Name = "BiomeIHouse", IgnoreAssert = true })
+		LoadPackages({ Name = "Chronos", IgnoreAssert = true })
+		LoadPackages({ Name = "Zagreus", IgnoreAssert = true })
 	elseif biome == "Ephyra" then
 		LoadPackages({ Name = "BiomeN", IgnoreAssert = true })
 	elseif biome == "Sea" then
