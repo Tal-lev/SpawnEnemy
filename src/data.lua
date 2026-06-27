@@ -39,6 +39,7 @@ mod.EnemyDisplayOrder = {
             "Treant",
             "TreantTail",
             "FogEmitter",
+            "ZombieAssassin_Miniboss",
             "Hecate",
         },
     },
@@ -52,6 +53,7 @@ mod.EnemyDisplayOrder = {
             "Guard2",
             "Radiator2",
             "Jellyfish",
+            "ThiefMineLayer",
         },
         elite = {
             "FishmanMelee_Elite",
@@ -61,6 +63,7 @@ mod.EnemyDisplayOrder = {
             "WaterUnit_Elite",
             "Guard2_Elite",
             "Radiator2_Elite",
+            "ThiefMineLayer_Elite",
         },
         boss = {
             "CrawlerMiniboss",
@@ -141,6 +144,8 @@ mod.EnemyDisplayOrder = {
             "ZombieSpawner",
             "ZombieHeavyRanged",
             "ZombieAssassin",
+            "Sheep_Explosive",
+            "Sheep_Zombie",
         },
         elite = {
             "Carrion_Elite",
