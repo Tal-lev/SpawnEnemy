@@ -146,6 +146,7 @@ mod.EnemyDisplayOrder = {
             "ZombieAssassin",
             "Sheep_Explosive",
             "Sheep_Zombie",
+            "Sheep_Sick",
         },
         elite = {
             "Carrion_Elite",
@@ -212,6 +213,7 @@ mod.EnemyDisplayOrder = {
         },
         boss = {
             "Talos",
+            "Dragon_MiniBoss",
             "Prometheus",
             "Heracles",
         },
@@ -235,6 +237,8 @@ mod.EnemyDisplayOrder = {
         boss = {
             "TyphonEgg",
             "Eyeball",
+            "Brute_Miniboss",
+            "Stalker_Miniboss",
             "TyphonEye",
             "TyphonHead",
             "TyphonTail",

@@ -33,6 +33,7 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 		LoadPackages({ Name = "BiomeP", IgnoreAssert = true })
 	elseif biome == "Summit" then
 		LoadPackages({ Name = "BiomeQ", IgnoreAssert = true })
+		LoadPackages({ Name = "BiomeQEnding", IgnoreAssert = true })
 	elseif biome == "Tartarus_H1" or biome == "Asphodel" or biome == "Elysium" or biome == "Styx" then
 		LoadPackages({ Name = "RoomManagerModsNikkelMHadesBiomes", IgnoreAssert = true })
 	end
