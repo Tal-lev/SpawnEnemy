@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Adding SatyrRatCatcher_Miniboss
+
 ## [0.2.4] - 2026-06-30
 
 - Fix Loading BiomeQEnding package properly
