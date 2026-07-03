@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Adding SatyrRatCatcher_Miniboss
 - Added ZJ minibosses
+- Added ZJ Hydras
 
 ## [0.2.4] - 2026-06-30
 
