@@ -54,6 +54,7 @@ mod.EnemyDisplayOrder = {
             "Radiator2",
             "Jellyfish",
             "ThiefMineLayer",
+            "BloodMine",
         },
         elite = {
             "FishmanMelee_Elite",
@@ -131,6 +132,7 @@ mod.EnemyDisplayOrder = {
         },
         boss = {
             "GoldElemental_MiniBoss",
+            "SatyrRatCatcher_Miniboss",
             "Zagreus",
             "Chronos",
         },
@@ -240,8 +242,9 @@ mod.EnemyDisplayOrder = {
             "Brute_Miniboss",
             "Stalker_Miniboss",
             "TyphonEye",
-            "TyphonHead",
+            "TyphonTailMine",
             "TyphonTail",
+            "TyphonHead",
         },
     },
 
@@ -292,6 +295,8 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "HeavyRangedElite",
             },
             boss = {
+                "WretchAssassinMiniboss",
+                "HeavyRangedSplitterMiniboss",
                 "Harpy",
                 "Harpy2",
                 "Harpy3",
@@ -323,19 +328,31 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "RangedBurrowerElite",
             },
             boss = {
-
+                "SpreadShotUnitMiniboss",
+                "HitAndRunUnit",
+                "HydraHeadDartmaker",
+                "HydraHeadLavamaker",
+                "HydraHeadSlammer",
+                "HydraHeadWavemaker",
+                "HydraHeadSummoner",
+                "HydraHeadImmortal",
+                "HydraHeadImmortalLavamaker",
+                "HydraHeadImmortalSlammer",
+                "HydraHeadImmortalWavemaker",
+                "HydraHeadImmortalSummoner",
             },
 		},
 		Elysium = {
             regular = {
+                "ShadeNaked",
                 "ShadeSpearUnit",
                 "ShadeBowUnit",
                 "ShadeShieldUnit",
                 "ShadeSwordUnit",
+                "ShieldRanged",
                 "SplitShotUnit",
                 "Chariot",
                 "ChariotSuicide",
-                "FlurrySpawner",
                 "FlurrySpawner",
             },
             elite = {
@@ -343,7 +360,6 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "ShadeBowUnitElite",
                 "ShadeShieldUnitElite",
                 "ShadeSwordUnitElite",
-                "ShieldRangedElite",
                 "ShieldRangedElite",
                 "SplitShotUnitElite",
                 "ChariotElite",

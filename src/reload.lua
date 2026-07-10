@@ -36,6 +36,11 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 		LoadPackages({ Name = "BiomeQEnding", IgnoreAssert = true })
 	elseif biome == "Tartarus_H1" or biome == "Asphodel" or biome == "Elysium" or biome == "Styx" then
 		LoadPackages({ Name = "RoomManagerModsNikkelMHadesBiomes", IgnoreAssert = true })
+		LoadPackages({ Name = "NikkelM-HadesBiomesFxOriginal", IgnoreAssert = true })
+		LoadPackages({ Name = "NikkelM-HadesBiomesFxModded", IgnoreAssert = true })
+		LoadPackages({ Name = "TartarusModsNikkelMHadesBiomes", IgnoreAssert = true })
+		LoadPackages({ Name = "AsphodelModsNikkelMHadesBiomes", IgnoreAssert = true })
+		LoadPackages({ Name = "BiomeB", IgnoreAssert = true })
 	end
 	local enemyData = EnemyData[enemyName]
 	local hasEnemy = false
