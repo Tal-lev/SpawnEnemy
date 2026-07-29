@@ -149,6 +149,7 @@ mod.EnemyDisplayOrder = {
             "Sheep_Explosive",
             "Sheep_Zombie",
             "Sheep_Sick",
+            "SoulPylon",
         },
         elite = {
             "Carrion_Elite",
@@ -238,6 +239,17 @@ mod.EnemyDisplayOrder = {
         },
         boss = {
             "TyphonEgg",
+            "TyphonEggLarge",
+            "TyphonHeadEgg01",
+            "TyphonHeadEgg02",
+            "TyphonHeadEgg03",
+            "TyphonHeadEgg04",
+            "TyphonHeadEgg05",
+            "TyphonHeadEgg06",
+            "TyphonHeadEgg07",
+            "TyphonHeadEggCaptain",
+            "TyphonHeadEggBoar",
+            "TyphonHeadEggDragon",
             "Eyeball",
             "Brute_Miniboss",
             "Stalker_Miniboss",
@@ -395,4 +407,26 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
             },
 		}
 	})
+end
+
+if rom.mods['JarlUlsfark-UnderworldRites'] then
+    table.insert(mod.BiomeDisplayOrder, "Pyre")
+    
+    OverwriteTableKeys(mod.EnemyDisplayOrder,{
+		Pyre = {
+            regular = {
+            "PyreSmall",
+            "PyreMedium",
+            "PyreLarge",
+            "PyreTree",
+            "PyreTreeDefender",
+            },
+            elite = {
+
+            },
+            boss = {
+
+            },
+        },
+    })
 end
