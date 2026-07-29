@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Adding UnderworldRites mod compatibility 
+
 ## [0.2.5] - 2026-07-10
 
 - Adding SatyrRatCatcher_Miniboss
