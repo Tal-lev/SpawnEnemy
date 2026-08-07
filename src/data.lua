@@ -420,6 +420,7 @@ if rom.mods['JarlUlsfark-UnderworldRites'] then
             "PyreLarge",
             "PyreTree",
             "PyreTreeDefender",
+            "PyreMonster",
             },
             elite = {
 
