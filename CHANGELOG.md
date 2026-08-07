@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.6] - 2026-08-07
+
 - Adding UnderworldRites mod compatibility 
 
 ## [0.2.5] - 2026-07-10
@@ -55,7 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.5...HEAD
+[unreleased]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.6...HEAD
+[0.2.6]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.5...0.2.6
 [0.2.5]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.4...0.2.5
 [0.2.4]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.3...0.2.4
 [0.2.3]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.2...0.2.3
