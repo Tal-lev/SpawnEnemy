@@ -415,18 +415,25 @@ if rom.mods['JarlUlsfark-UnderworldRites'] then
     OverwriteTableKeys(mod.EnemyDisplayOrder,{
 		Pyre = {
             regular = {
-            "PyreSmall",
-            "PyreMedium",
-            "PyreLarge",
-            "PyreTree",
-            "PyreTreeDefender",
-            "PyreMonster",
+                "PyreSmall",
+                "PyreMedium",
+                "PyreLarge",
+                "PyreTree",
+                "PyreTreeDefender",
+                "PyreMonster",
+                "PyreTrail",
             },
             elite = {
-
+                "PyreSmall_Elite",
+                "PyreMedium_Elite",
+                "PyreLarge_Elite",
+                "PyreTree_Elite",
+                "PyreTreeDefender_Elite",
+                "PyreMonster_Elite",
+                "PyreTrail_Elite",
             },
             boss = {
-
+                "PyreCaravan",
             },
         },
     })
