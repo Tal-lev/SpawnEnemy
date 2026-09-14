@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Added the ability to spawn NPCs
+- Added Destroy button to destroy summons
 - Changed Icon
 
 ## [0.2.6] - 2026-08-07
