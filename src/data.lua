@@ -13,6 +13,7 @@ mod.TypeDisplayOrder = {
     "regular",
     "elite",
     "boss",
+    "NPC"
 }
 
 mod.EnemyDisplayOrder = {
@@ -41,6 +42,18 @@ mod.EnemyDisplayOrder = {
             "FogEmitter",
             "ZombieAssassin_Miniboss",
             "Hecate",
+        },
+        NPC = {
+            "NPC_Arachne_01",
+            "NPC_Arachne_Home_01",
+            "NPC_Nemesis_01",
+            "NPC_Odysseus_01",
+            "NPC_Skelly_01",
+            "NPC_Hecate_01",
+            "NPC_Dora_01",
+            "NPC_Selene_01",
+            "NPC_Artemis_01",
+            "NPC_Artemis_Field_01",
         },
     },
     Oceanus = {
@@ -73,6 +86,12 @@ mod.EnemyDisplayOrder = {
             "SirenKeytarist",
             "SirenDrummer",
             "Scylla",
+        },
+        NPC = {
+            "NPC_Narcissus_01",
+            --"NPC_Scylla_01",
+            --"NPC_Scylla_Unnamed_01",
+            --"NPC_ScyllaFan_01",
         },
     },
     Mourning_Fields = {
@@ -110,6 +129,11 @@ mod.EnemyDisplayOrder = {
             "Vampire",
             "InfestedCerberus",
         },
+        NPC = {
+            "NPC_Echo_01",
+            "NPC_Cerberus_01",
+            --"NPC_Echo_02",
+        },
     },
     Tartarus = {
         regular = {
@@ -135,6 +159,15 @@ mod.EnemyDisplayOrder = {
             "SatyrRatCatcher_Miniboss",
             "Zagreus",
             "Chronos",
+        },
+        NPC = {
+            --"NPC_Hades_01",
+            "NPC_Hades_02",
+            "NPC_Persephone_01",
+            "NPC_Chronos_01",
+            "NPC_Chronos_02",
+            "NPC_Zagreus_Past_01",
+            "NPC_Nyx_Story_01",
         },
     },
     Ephyra = {
@@ -164,6 +197,10 @@ mod.EnemyDisplayOrder = {
             "SatyrCrossbow",
             "Polyphemus",
         },
+        NPC = {
+            "NPC_Medea_01",
+            "NPC_Heracles_01",
+        },
     },
     Sea = {
         regular = {
@@ -189,6 +226,10 @@ mod.EnemyDisplayOrder = {
             "Charybdis",
             "Captain",
             "Eris",
+        },
+        NPC = {
+            "NPC_Eris_01",
+            "NPC_Circe_01",
         },
     },
     Mount_Olympus = {
@@ -219,6 +260,11 @@ mod.EnemyDisplayOrder = {
             "Dragon_MiniBoss",
             "Prometheus",
             "Heracles",
+        },
+        NPC = {
+            --"NPC_Prometheus_01",
+            "NPC_Dionysus_01",
+            "NPC_Athena_01",
         },
     },
     Summit = {
@@ -257,6 +303,17 @@ mod.EnemyDisplayOrder = {
             "TyphonTailMine",
             "TyphonTail",
             "TyphonHead",
+        },
+        NPC = {
+            --"NPC_Zeus_01",
+            "NPC_Zeus_Story_01",
+            --"NPC_Hera_01",
+            "NPC_Hera_Story_01",
+            --"NPC_Poseidon_01",
+            --"NPC_Poseidon_Story_01",
+            "NPC_Demeter_Story_01",
+            "NPC_Apollo_Story_01",
+            --"NPC_Aphrodite_Story_01",
         },
     },
 
@@ -313,6 +370,12 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "Harpy2",
                 "Harpy3",
             },
+            NPC = {
+                "ModsNikkelMHadesBiomes_NPC_Bouldy_01",
+                "NPC_Sisyphus_01",
+                "NPC_FurySister_01",
+                "NPC_Thanatos_01",
+            },
 		},
 		Asphodel = {
             regular = {
@@ -353,6 +416,11 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "HydraHeadImmortalWavemaker",
                 "HydraHeadImmortalSummoner",
             },
+            NPC = {
+                "NPC_Eurydice_01",
+                "NPC_Orpheus_Story_01",
+	            "NPC_Orpheus_01",
+            },
 		},
 		Elysium = {
             regular = {
@@ -381,6 +449,9 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "Minotaur",
                 "Theseus",
             },
+            NPC = {
+                "NPC_Patroclus_01",
+            },
 		},
 		Styx = {
             regular = {
@@ -404,6 +475,9 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
                 "HadesCrawlerMiniBoss",
                 "Hades",
                 "Charon",
+            },
+            NPC = {
+                "NPC_Hades_Story_02",
             },
 		}
 	})
@@ -434,6 +508,9 @@ if rom.mods['JarlUlsfark-UnderworldRites'] then
             },
             boss = {
                 "PyreCaravan",
+            },
+            NPC = {
+
             },
         },
     })

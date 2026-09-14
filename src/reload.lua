@@ -5,6 +5,32 @@
 -- this file will be reloaded if it changes during gameplay,
 -- 	so only assign to values or define things here.
 
+function mod.DestroyNPC( args )
+	args = args or {}
+	local enemyName = args.enemy
+	local enemyId = GetClosestUnitOfType({ Id = CurrentRun.Hero.ObjectId, DestinationName = enemyName })
+	Destroy({ Id = enemyId })
+end
+
+function mod.SummonNPC( source, enemyName, args )
+	args = args or {}
+
+	local destId = CurrentRun.Hero.ObjectId
+
+	if args.UseSourceForDestination then
+		destId = source.ObjectId
+	end
+
+	local chronos = DeepCopyTable( EnemyData[enemyName] )
+	chronos.ObjectId = SpawnUnit({ Name = enemyName, Group = "Standing", DestinationId = destId, OffsetX = -180, OffsetY = -120, })
+	SetupUnit( chronos, CurrentRun, { IgnoreAI = true, IgnoreAssert = true, } )
+	SetUnitProperty({ DestinationId = chronos.objectId, Property = "CollideWithObstacles", Value = false })
+	SetUnitProperty({ DestinationId = chronos.objectId, Property = "CollideWithUnits", Value = false })
+	SetAlpha({ Id = chronos.ObjectId, Fraction = 0, Duration = 0 })
+	AngleTowardTarget({ Id = chronos.ObjectId, DestinationId = source.ObjectId })
+
+	SetAlpha({ Id = chronos.ObjectId, Fraction = 1, Duration = 0.3 })
+end
 
 -- These functions are part of the example code snippets from ready.lua
 function mod.SummonEnemy( functionArgs, triggerArgs)
@@ -42,6 +68,12 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 		LoadPackages({ Name = "AsphodelModsNikkelMHadesBiomes", IgnoreAssert = true })
 		LoadPackages({ Name = "BiomeB", IgnoreAssert = true })
 	end
+
+	if functionArgs.type == "NPC" then
+		mod.SummonNPC( CurrentRun.Hero, enemyName)
+		return
+	end
+
 	local enemyData = EnemyData[enemyName]
 	local hasEnemy = false
 
@@ -49,7 +81,6 @@ function mod.SummonEnemy( functionArgs, triggerArgs)
 
 	local offset = CalcOffset(math.rad(GetAngle({Id = CurrentRun.Hero.ObjectId})), 500 )
 	local invaderSpawnPoint = SpawnObstacle({ Name = "InvisibleTarget", DestinationId = CurrentRun.Hero.ObjectId, OffsetX = offset.X, OffsetY = offset.Y, ForceToValidLocation = true})
-	
 
 	summonArgs.SpawnPointId = invaderSpawnPoint
 	summonArgs.TryUseRequiredSpawnPoint = true
