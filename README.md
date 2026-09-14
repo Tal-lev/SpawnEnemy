@@ -7,6 +7,7 @@ Allows spawning basic enemies using the imgui menu.
 - Spawn friends
 - Spawn foes
 - Spawn bosses
+- Destroy summons (Experimental)
 - Stop time
 
 ## Installation
