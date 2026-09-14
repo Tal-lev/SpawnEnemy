@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-14
+
 - Added the ability to spawn NPCs
 - Added Destroy button to destroy summons
 - Changed Icon
@@ -61,7 +63,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.6...HEAD
+[unreleased]: https://github.com/Tal-lev/SpawnEnemy/compare/0.3.0...HEAD
+[0.3.0]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.6...0.3.0
 [0.2.6]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.5...0.2.6
 [0.2.5]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.4...0.2.5
 [0.2.4]: https://github.com/Tal-lev/SpawnEnemy/compare/0.2.3...0.2.4
