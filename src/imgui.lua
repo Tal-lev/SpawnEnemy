@@ -91,12 +91,12 @@ function DrawMenu()
         } )
     end
 
-    --rom.ImGui.SameLine(); clicked = rom.ImGui.Button("Destroy")
-    --if clicked then
-    --    mod.DestroyNPC({
-    --        enemy = config.enemy,
-    --    })
-    --end
+    rom.ImGui.SameLine(); clicked = rom.ImGui.Button("Destroy")
+    if clicked then
+        mod.DestroyNPC({
+            enemy = config.enemy,
+        })
+    end
 
     rom.ImGui.Text("Control Time")
 
