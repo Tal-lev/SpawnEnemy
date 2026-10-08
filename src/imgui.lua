@@ -83,7 +83,7 @@ function DrawMenu()
 
     local clicked = rom.ImGui.Button("Summon")
     if clicked then
-        mod.SummonEnemy( {
+        thread(mod.SummonEnemy, {
             enemy = config.enemy, 
             team = config.team,
             biome = config.biome,
@@ -93,7 +93,7 @@ function DrawMenu()
 
     rom.ImGui.SameLine(); clicked = rom.ImGui.Button("Destroy")
     if clicked then
-        mod.DestroyNPC({
+        thread(mod.DestroyNPC,{
             enemy = config.enemy,
         })
     end
@@ -102,7 +102,7 @@ function DrawMenu()
 
     clicked = rom.ImGui.Button("Stop")
     if clicked then
-        GameplaySetElapsedTimeMultiplier( {
+        thread(GameplaySetElapsedTimeMultiplier,{
             ElapsedTimeMultiplier = 0.01,
             Force = true,
 
